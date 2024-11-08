@@ -7,17 +7,18 @@
         <link rel="stylesheet" href="css/style.min.css" />
     </head>
     <body>
-        <header class="header">
+        <header class="header fixed-header">
             <div class="container">
                 <div class="header__content">
                     <div class="header__menu">
-                        <div class="header__menu-btn">
+                        <div class="header__dropdown">
                             <img
                                 src="../images/menu-btn.svg"
                                 alt=""
                                 class="menu-btn-img"
                             />
-                            <div class="header__text">меню</div>
+                            <button class="header__dropbtn">Меню</button>
+                            <div class="header__dropdown-content"></div>
                         </div>
                         <button class="header__choice">Выбрать квартиру</button>
                     </div>
@@ -34,33 +35,83 @@
         
         <main class="main">
             <div class="container">
-                <div class="main__img-box">
-                    <img
-                        src="../images/main-img.avif"
-                        alt="img"
-                        class="main__img"
-                    />
-                </div>
-                <div class="main__content">
-                    <div class="main__text">
-                        Дом бизнес-класса <br />
-                        для ценителей роскоши
+                <div class="main__wrapper -first">
+                    <div class="main__img-box">
+                        <img
+                            src="../images/main-img.avif"
+                            alt="img"
+                            class="main__img"
+                        />
                     </div>
+                    <div class="main__content">
+                        <div class="main__text">
+                            Дом бизнес-класса <br />
+                            для ценителей роскоши
+                        </div>
 
-                    <img
-                        src="../images/main-logo.svg"
-                        alt=""
-                        class="main__text-logo"
-                    />
+                        <img
+                            src="../images/main-logo.svg"
+                            alt=""
+                            class="main__text-logo"
+                        />
+                    </div>
                 </div>
             </div>
-            <div class="container"></div>
-        </main>
-        <footer>
-            <div class="container">
-                <div class="content">footer</div>
+            <div class="container -second">
+                <div class="main__wrapper -second">
+                    <div class="main__img3-box">
+                        <div class="main__text-about">о проекте</div>
+                        <div class="main__img2-box">
+                            <img
+                                src="../images/main-img2.avif"
+                                alt="img"
+                                class="main__img2"
+                            />
+                        </div>
+                        <img
+                            src="../images/main-img3.svg"
+                            alt="img"
+                            class="main__img3"
+                        />
+                    </div>
+                </div>
+                <div class="main__wrapper -third">
+                    <img
+                        src="../images/main-img4.svg"
+                        alt="img"
+                        class="main__img4"
+                    />
+                    <div class="main__title">
+                        уютное и безопасное пространство для счастливой, <br />
+                        <span class="main__blue"
+                            >спокойной и размеренной жизни</span
+                        >
+                    </div>
+                    <div class="main__text2">
+                        <span class="main__blue">
+                            Квартиры от 65 до 356 м<sup>2</sup> с чистовой отделкой,
+                        </span>
+                        балконами, лоджиями и террасами В собственной ЗАКРЫТОЙ
+                        охраняемой территории
+                    </div>
+                    <div class="main__video-box">
+                        <div class="main__video-info">
+                           <br> Видео о проекте
+                            <span class="main__video-time">1:25 минут</span>
+                        </div>
+                        <div class="main__hr" /></div>
+                        <div src="" class="main__video">
+                            <img
+                                src="../images/main-video.svg"
+                                alt="play"
+                                class="main__video-img"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </main>
+        <footer></footer>
         
     </body>
 </html>

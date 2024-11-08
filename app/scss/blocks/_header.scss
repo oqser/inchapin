@@ -5,6 +5,7 @@
     line-height: 100%;
     letter-spacing: 0.07em;
     text-transform: uppercase;
+
     &__content {
         margin: 40px 0;
         display: flex;
@@ -15,13 +16,35 @@
     &__menu {
         display: flex;
         gap: 43px;
-        .menu-btn-img {
-            margin-right: 15px;
-        }
+        align-items: center;
     }
-    &__menu-btn {
+
+    &__dropdown {
         display: flex;
         align-items: center;
+
+        height: 17px;
+        .menu-btn-img {
+            margin-right: 15px;
+            height: 17px;
+            width: 38px;
+            transition: height 0.2s ease;
+        }
+        &:hover {
+            .menu-btn-img {
+                height: 22px;
+                width: 38px;
+            }
+        }
+    }
+    &__dropbtn {
+        text-transform: uppercase;
+        border: none;
+        background: transparent;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: 7%;
     }
     &__choice {
         color: rgb(255, 255, 255);
@@ -50,4 +73,12 @@
             background: transparent;
         }
     }
+}
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgb(255, 255, 255);
 }
