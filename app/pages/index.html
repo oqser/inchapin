@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>INCHAPIN</title>
         <link rel="stylesheet" href="css/style.min.css" />
     </head>
     <body>
@@ -64,18 +64,31 @@
                     </div>
                     <div class="main__text2">
                         <span class="main__blue">
-                            Квартиры от 65 до 356 м<sup>2</sup> с чистовой отделкой,
+                            Квартиры от 65 до 356 м<sup>2</sup> с чистовой
+                            отделкой,
                         </span>
                         балконами, лоджиями и террасами В собственной ЗАКРЫТОЙ
                         охраняемой территории
                     </div>
                     <div class="main__video-box">
                         <div class="main__video-info">
-                           <br> Видео о проекте
+                            <br />
+                            Видео о проекте
                             <span class="main__video-time">1:25 минут</span>
                         </div>
-                        <div class="main__hr" /></div>
-                        <div src="" class="main__video">
+                        <div class="main__hr"></div>
+                        <div class="main__video">
+                            <!-- Add video element but keep it hidden initially -->
+                            <video
+                                class="main__video-player"
+                                preload="metadata"
+                            >
+                                <!-- You'll add your source here later -->
+                                <source
+                                    src="../video/memp.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
                             <img
                                 src="../images/main-video.svg"
                                 alt="play"
@@ -85,7 +98,104 @@
                     </div>
                 </div>
             </div>
+            <div class="main__callback">
+                <div class="main__cb-wrapper">
+                    <div class="main__cb-title">Заказать звонок</div>
+                    <div class="main__input-box">
+                        <input
+                            type="text"
+                            class="main__name"
+                            placeholder="ИМЯ"
+                        />
+                        <input
+                            type="text"
+                            class="main__phone"
+                            placeholder="ТЕЛЕФОН"
+                        />
+                        <input
+                            type="text"
+                            class="main__e-mail"
+                            placeholder="E-MAIL"
+                        />
+                        <div class="main__agreement">
+                            Нажимая на кнопку «Отправить», вы ознакомлены
+                            <br />и соглашаетесь с политикой обработки
+                            персональных данных
+                        </div>
+                    </div>
+                    <button class="main__send-cb">Отправить</button>
+                    <button class="main__exit-cb">X</button>
+                </div>
+            </div>
         </main>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const videoContainer = document.querySelector('.main__video')
+                const videoPlayer = document.querySelector(
+                    '.main__video-player'
+                )
+                const playButton = document.querySelector('.main__video-img')
+
+                videoContainer.addEventListener('click', function () {
+                    if (!videoPlayer.src) {
+                        videoPlayer.src = '../video/memp.mp4'
+                    }
+
+                    videoPlayer.style.display = 'block'
+                    playButton.style.display = 'none'
+
+                    videoPlayer
+                        .play()
+                        .then(() => {
+                            if (videoPlayer.requestFullscreen) {
+                                videoPlayer.requestFullscreen()
+                            } else if (videoPlayer.webkitRequestFullscreen) {
+                                videoPlayer.webkitRequestFullscreen()
+                            } else if (videoPlayer.msRequestFullscreen) {
+                                videoPlayer.msRequestFullscreen()
+                            } else if (videoPlayer.mozRequestFullScreen) {
+                                videoPlayer.mozRequestFullScreen()
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(
+                                'Error attempting to play video:',
+                                error
+                            )
+                        })
+                })
+
+                document.addEventListener(
+                    'fullscreenchange',
+                    handleFullscreenChange
+                )
+                document.addEventListener(
+                    'webkitfullscreenchange',
+                    handleFullscreenChange
+                )
+                document.addEventListener(
+                    'mozfullscreenchange',
+                    handleFullscreenChange
+                )
+                document.addEventListener(
+                    'MSFullscreenChange',
+                    handleFullscreenChange
+                )
+
+                function handleFullscreenChange() {
+                    if (
+                        !document.fullscreenElement &&
+                        !document.webkitFullscreenElement &&
+                        !document.mozFullScreenElement &&
+                        !document.msFullscreenElement
+                    ) {
+                        videoPlayer.pause()
+                        videoPlayer.style.display = 'none'
+                        playButton.style.display = 'block'
+                    }
+                }
+            })
+        </script>
         <!--= include footer.html -->
     </body>
 </html>

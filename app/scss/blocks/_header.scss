@@ -22,7 +22,7 @@
     &__dropdown {
         display: flex;
         align-items: center;
-
+        cursor: pointer;
         height: 17px;
         .menu-btn-img {
             margin-right: 15px;
@@ -45,6 +45,7 @@
         font-weight: 600;
         line-height: 100%;
         letter-spacing: 7%;
+        cursor: pointer;
     }
     &__choice {
         color: rgb(255, 255, 255);
@@ -56,13 +57,41 @@
         border: none;
         border-radius: 118px;
         background: rgb(47, 128, 237);
+        position: relative;
+        overflow: hidden;
+        height: 53px;
+        cursor: pointer;
+        user-select: none;
+    }
+    &__scroll-wrapper {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease;
+        height: 100%;
         padding: 18px 24px;
+        will-change: transform;
+    }
+
+    &__scroll-text2 {
+        visibility: hidden;
+    }
+    &__choice:hover {
+        .header__scroll-wrapper {
+            transform: translateY(-30%);
+        }
+        .header__scroll-text1 {
+            visibility: hidden;
+        }
+        .header__scroll-text2 {
+            visibility: visible;
+        }
     }
     &__callback {
         display: flex;
         align-items: center;
         gap: 45px;
         .btn-cb {
+            height: 50px;
             color: rgb(47, 128, 237);
             font-size: 15px;
             font-weight: 600;
@@ -71,6 +100,8 @@
             text-transform: uppercase;
             border: none;
             background: transparent;
+            padding: 0;
+            height: 50px;
         }
     }
 }

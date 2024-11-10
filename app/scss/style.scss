@@ -136,6 +136,7 @@ body {
         justify-content: space-between;
         position: relative;
         box-sizing: content-box;
+        gap: 15px;
     }
     &__video-info {
         display: flex;
@@ -144,6 +145,7 @@ body {
         font-weight: 600;
         line-height: 160%;
         text-transform: uppercase;
+        white-space: nowrap;
     }
     &__video-time {
         color: rgb(17, 17, 17);
@@ -157,16 +159,80 @@ body {
     }
     &__hr {
         height: 1px;
-        width: 30%;
+        width: 10em;
         background-color: rgb(215, 215, 215);
     }
     &__video {
         display: block;
         position: relative;
+        cursor: pointer;
     }
     &__video-img {
         border-radius: 50%;
         background: rgba(47, 128, 237, 0.3);
+        position: relative;
+        z-index: 2;
+        max-width: 186px;
+    }
+    &__video-player {
+        display: none;
+        width: 100%;
+        height: 100%;
+    }
+    &__callback {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__cb-wrapper {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+    }
+    &__input-box {
+        display: flex;
+        flex-direction: column;
+    }
+    &__cb-title {
+        font-size: 52px;
+        font-weight: 400;
+        line-height: 120%;
+        text-transform: uppercase;
+        margin-bottom: 80px;
+    }
+    &__input-box {
+        display: flex;
+        flex-direction: column;
+        gap: 49px;
+        input {
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            padding-bottom: 5px;
+        }
+    }
+    &__agreement {
+        text-align: center;
+        color: rgb(0, 0, 0);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 140%;
+        opacity: 0.5;
+        margin: 1px 0 30px;
+    }
+    &__send-cb {
+        color: rgb(255, 255, 255);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: 7%;
+        text-transform: uppercase;
+        padding: 24px 69px;
+        box-sizing: border-box;
+        border: 1px solid rgb(47, 128, 237);
+        border-radius: 100px;
+        background: rgb(47, 128, 237);
+        width: fit-content;
     }
 }
 
