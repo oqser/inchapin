@@ -92,6 +92,11 @@ body {
         font-size: 17px;
         font-weight: 400;
         text-transform: uppercase;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        &:hover {
+            scale: 120%;
+        }
     }
     &__text-logo {
     }
@@ -166,6 +171,10 @@ body {
         display: block;
         position: relative;
         cursor: pointer;
+        transition: all 0.5s ease;
+        &:hover {
+            scale: 110%;
+        }
     }
     &__video-img {
         border-radius: 50%;
@@ -181,18 +190,18 @@ body {
     }
     &__callback {
         display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    &__cb-wrapper {
-        display: flex;
         flex-direction: column;
         position: relative;
         align-items: center;
+        justify-content: center;
+        height: 100em;
+        max-height: 900px;
     }
+
     &__input-box {
         display: flex;
         flex-direction: column;
+        gap: 49px;
     }
     &__cb-title {
         font-size: 52px;
@@ -201,14 +210,35 @@ body {
         text-transform: uppercase;
         margin-bottom: 80px;
     }
-    &__input-box {
-        display: flex;
-        flex-direction: column;
-        gap: 49px;
+    &__form-row {
+        position: relative;
         input {
+            display: block;
             border: none;
             border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-            padding-bottom: 5px;
+            outline: none;
+            color: rgb(0, 0, 0);
+            font-size: 17px;
+            font-weight: 400;
+            text-transform: uppercase;
+            width: 100em;
+            max-width: 587px;
+            padding: 0;
+        }
+        label {
+            position: absolute;
+            color: rgb(0, 0, 0);
+            font-size: 17px;
+            font-weight: 400;
+            transform: translateY(-25px);
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+        }
+        input:focus + label,
+        input:valid + label {
+            transform: translateY(-40px);
+            font-size: 12px;
+            font-weight: 400;
         }
     }
     &__agreement {
@@ -233,7 +263,51 @@ body {
         border-radius: 100px;
         background: rgb(47, 128, 237);
         width: fit-content;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+            background: rgb(32, 90, 167);
+        }
     }
+    &__exit-cb {
+        position: absolute;
+        top: 60px;
+        right: 60px;
+        outline: none; /* Для синий ободки */
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        &:hover {
+            scale: 120%;
+        }
+    }
+}
+.main__callback {
+    position: fixed;
+    top: 133px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__callback.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Prevent scrolling of the background content when modal is open */
+body.modal-open {
+    overflow: hidden;
 }
 
 @import 'blocks/header';

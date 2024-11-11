@@ -36,7 +36,7 @@
                     </div>
                     <div class="header__callback">
                         <div class="header__text">+7 495 527 21 21</div>
-                        <button class="header__choice btn-cb">
+                        <button class="header__choice btn-cb" id="callback-btn">
                             <div class="header__scroll-wrapper">
                                 <span class="header__scroll-text1"
                                     >Заказать звонок</span
@@ -141,104 +141,50 @@
                     </div>
                 </div>
             </div>
-            <div class="main__callback">
-                <div class="main__cb-wrapper">
-                    <div class="main__cb-title">Заказать звонок</div>
-                    <div class="main__input-box">
-                        <input
-                            type="text"
-                            class="main__name"
-                            placeholder="ИМЯ"
-                        />
-                        <input
-                            type="text"
-                            class="main__phone"
-                            placeholder="ТЕЛЕФОН"
-                        />
-                        <input
-                            type="text"
-                            class="main__e-mail"
-                            placeholder="E-MAIL"
-                        />
-                        <div class="main__agreement">
-                            Нажимая на кнопку «Отправить», вы ознакомлены
-                            <br />и соглашаетесь с политикой обработки
-                            персональных данных
-                        </div>
+            <form action="" class="main__callback">
+                <div class="main__cb-title">Заказать звонок</div>
+                <div class="main__input-box">
+                    <div class="main__form-row">
+                        <input type="text" id="name" required /><label
+                            for="name"
+                            >имя</label
+                        >
                     </div>
-                    <button class="main__send-cb">Отправить</button>
-                    <button class="main__exit-cb">X</button>
+                    <div class="main__form-row">
+                        <input type="text" id="phone" required /><label
+                            for="phone"
+                            >телефон</label
+                        >
+                    </div>
+                    <div class="main__form-row">
+                        <input type="text" id="email" required /><label
+                            for="email"
+                            >E-mail</label
+                        >
+                    </div>
+                    <div class="main__agreement">
+                        Нажимая на кнопку «Отправить», вы ознакомлены
+                        <br />и соглашаетесь с политикой обработки персональных
+                        данных
+                    </div>
                 </div>
-            </div>
+                <p>
+                    <input
+                        type="submit"
+                        value="Отправить"
+                        class="main__send-cb"
+                    />
+                </p>
+                <button class="main__exit-cb">
+                    <img
+                        src="../images/src/exit-cb.svg"
+                        alt="exit"
+                        class="exit-cb"
+                    />
+                </button>
+            </form>
         </main>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const videoContainer = document.querySelector('.main__video')
-                const videoPlayer = document.querySelector(
-                    '.main__video-player'
-                )
-                const playButton = document.querySelector('.main__video-img')
-
-                videoContainer.addEventListener('click', function () {
-                    if (!videoPlayer.src) {
-                        videoPlayer.src = '../video/memp.mp4'
-                    }
-
-                    videoPlayer.style.display = 'block'
-                    playButton.style.display = 'none'
-
-                    videoPlayer
-                        .play()
-                        .then(() => {
-                            if (videoPlayer.requestFullscreen) {
-                                videoPlayer.requestFullscreen()
-                            } else if (videoPlayer.webkitRequestFullscreen) {
-                                videoPlayer.webkitRequestFullscreen()
-                            } else if (videoPlayer.msRequestFullscreen) {
-                                videoPlayer.msRequestFullscreen()
-                            } else if (videoPlayer.mozRequestFullScreen) {
-                                videoPlayer.mozRequestFullScreen()
-                            }
-                        })
-                        .catch((error) => {
-                            console.log(
-                                'Error attempting to play video:',
-                                error
-                            )
-                        })
-                })
-
-                document.addEventListener(
-                    'fullscreenchange',
-                    handleFullscreenChange
-                )
-                document.addEventListener(
-                    'webkitfullscreenchange',
-                    handleFullscreenChange
-                )
-                document.addEventListener(
-                    'mozfullscreenchange',
-                    handleFullscreenChange
-                )
-                document.addEventListener(
-                    'MSFullscreenChange',
-                    handleFullscreenChange
-                )
-
-                function handleFullscreenChange() {
-                    if (
-                        !document.fullscreenElement &&
-                        !document.webkitFullscreenElement &&
-                        !document.mozFullScreenElement &&
-                        !document.msFullscreenElement
-                    ) {
-                        videoPlayer.pause()
-                        videoPlayer.style.display = 'none'
-                        playButton.style.display = 'block'
-                    }
-                }
-            })
-        </script>
+        <script src="../js/main.min.js"></script>
         <footer></footer>
         
     </body>

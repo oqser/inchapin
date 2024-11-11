@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>INCHAPIN</title>
         <link rel="stylesheet" href="css/style.min.css" />
     </head>
     <body>
@@ -22,18 +22,30 @@
                         </div>
                         <button class="header__choice">
                             <div class="header__scroll-wrapper">
-                                <span class="header__scroll-text1">select an apartment
-                                <span class="header__scroll-text2">select an apartment
+                                <span class="header__scroll-text1"
+                                    >Выбрать квартиру</span
+                                >
+                                <span class="header__scroll-text2"
+                                    >Выбрать квартиру</span
+                                >
                             </div>
                         </button>
-                        
                     </div>
                     <div class="header__logo">
                         <img src="../images/header-logo.svg" alt="logo" />
                     </div>
                     <div class="header__callback">
                         <div class="header__text">+7 495 527 21 21</div>
-                        <button class="btn-cb">Заказать звонок</button>
+                        <button class="header__choice btn-cb" id="callback-btn">
+                            <div class="header__scroll-wrapper">
+                                <span class="header__scroll-text1"
+                                    >Заказать звонок</span
+                                >
+                                <span class="header__scroll-text2"
+                                    >Заказать звонок</span
+                                >
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -95,18 +107,31 @@
                     </div>
                     <div class="main__text2">
                         <span class="main__blue">
-                            Квартиры от 65 до 356 м<sup>2</sup> с чистовой отделкой,
+                            Квартиры от 65 до 356 м<sup>2</sup> с чистовой
+                            отделкой,
                         </span>
                         балконами, лоджиями и террасами В собственной ЗАКРЫТОЙ
                         охраняемой территории
                     </div>
                     <div class="main__video-box">
                         <div class="main__video-info">
-                           <br> Видео о проекте
+                            <br />
+                            Видео о проекте
                             <span class="main__video-time">1:25 минут</span>
                         </div>
-                        <div class="main__hr" /></div>
-                        <div src="" class="main__video">
+                        <div class="main__hr"></div>
+                        <div class="main__video">
+                            <!-- Add video element but keep it hidden initially -->
+                            <video
+                                class="main__video-player"
+                                preload="metadata"
+                            >
+                                <!-- You'll add your source here later -->
+                                <source
+                                    src="../video/memp.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
                             <img
                                 src="../images/main-video.svg"
                                 alt="play"
@@ -116,7 +141,50 @@
                     </div>
                 </div>
             </div>
+            <form action="" class="main__callback">
+                <div class="main__cb-title">Заказать звонок</div>
+                <div class="main__input-box">
+                    <div class="main__form-row">
+                        <input type="text" id="name" required /><label
+                            for="name"
+                            >имя</label
+                        >
+                    </div>
+                    <div class="main__form-row">
+                        <input type="text" id="phone" required /><label
+                            for="phone"
+                            >телефон</label
+                        >
+                    </div>
+                    <div class="main__form-row">
+                        <input type="text" id="email" required /><label
+                            for="email"
+                            >E-mail</label
+                        >
+                    </div>
+                    <div class="main__agreement">
+                        Нажимая на кнопку «Отправить», вы ознакомлены
+                        <br />и соглашаетесь с политикой обработки персональных
+                        данных
+                    </div>
+                </div>
+                <p>
+                    <input
+                        type="submit"
+                        value="Отправить"
+                        class="main__send-cb"
+                    />
+                </p>
+                <button class="main__exit-cb">
+                    <img
+                        src="../images/src/exit-cb.svg"
+                        alt="exit"
+                        class="exit-cb"
+                    />
+                </button>
+            </form>
         </main>
+        <script src="../js/main.min.js"></script>
         <footer></footer>
         
     </body>
